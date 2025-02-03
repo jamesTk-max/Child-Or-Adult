@@ -1,0 +1,152 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Child or Adult</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+         *{
+            font-family: "Montserrat", serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+        }
+        body{
+            background-color: rgb(25, 25, 25);
+        }
+        .container{
+            background-color: rgb(220, 220, 220);
+            height: 50vh;
+            border-bottom-right-radius: 10px;
+            border-bottom-left-radius: 10px;
+            
+        }
+        .container h1{
+           padding-bottom: 10px;
+           font-size: 3rem;
+        }
+        .container button{
+            background-color: limegreen;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            color: #fff;
+        }
+        .container button:hover{
+             opacity: 0.5;
+        }
+        .container hr{
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .container .sec1{
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 15px;
+        }
+        .container p{
+            padding-top: 25px;
+        }
+        .form{
+            color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+            padding-top: 15px;
+            width: 90%;
+        }
+        .form label{
+            font-size: 1.5rem;
+        }
+        .form section{
+            display: block;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .form button{
+            background-color: crimson;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            text-align: center;
+        }
+        .form .result{
+            padding-top: 15px;
+        }
+        span{
+            color: #fff;
+            padding-bottom: 5px;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section class="sec1">
+            <h1>Check Out If You are An Adult or A Child</h1>
+            <hr>
+        <button class="getStartedBtn">Get Started</button>
+        <p>To Get Started, Click The Get Started Button, And When Input Fields Appear, Fill Them Out, And Click The Check Button</p>
+        </section>
+    </div>
+
+
+   <div class="form" style="display: none;">
+    <section class="name">
+        <label for="name">Enter your name</label>
+        <input type="text" id="name">
+    </section>
+    <section class="age">
+        <label for="age">Enter your age</label>
+        <input type="number" id="age">
+        
+    </section>
+    <button class="checkBtn">Check</button>
+    <p class="result"></p>
+   </div> 
+   <span>Made By Tamirat(JamesTk-max) Monday February-3 2025</span>
+   <script>
+
+
+const getStartedBtn = document.querySelector('.getStartedBtn')
+const checkBtn = document.querySelector('.checkBtn')
+
+
+getStartedBtn.addEventListener('click', ()=>{
+    const formDiv = document.querySelector('.form')
+    formDiv.style.display = 'block'
+    
+})
+checkBtn.addEventListener('click', ()=>{
+    const name = document.getElementById('name')
+    const age = document.getElementById('age')
+    const p = document.querySelector('.result')
+    
+    if (name.value === '' || age.value === '') {
+        alert('Fill out the input fields first')
+    } else {
+        const ageNumber = parseInt(age.value)
+        
+        if (ageNumber < 0) {
+            alert("Age can't be nagative, please enter a positive number")
+            //age.value = ''
+        } 
+        else if(ageNumber < 18 && ageNumber > 0){
+            p.textContent = `Hey ${name.value}, You are a Child`
+        }
+        else if(ageNumber >= 18) {
+            p.textContent = `Hey ${name.value}, You are an Adult`
+        }
+    }
+})
+   </script>
+</body>
+</html>
